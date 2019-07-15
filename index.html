@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
+    <!-- update last script -->
     <!-- <script
       async
       src="https://www.googletagmanager.com/gtag/js?id='UA-131039901-1'"
@@ -159,7 +160,7 @@
 
     <!-- <script src="all.js"></script> -->
     <!-- <script src="assets/js/slick.min.js"></script> -->
-    <script>
+    <!-- <script>
       $(function() {
         $(".main-slick")
           .on("init", function() {
@@ -192,65 +193,75 @@
           });
         });
       });
-    </script>
+    </script> -->
   </body>
 </html>
-<!-- 
+
 <script>
-    function replaceUrlParam(url, paramName, paramValue) {
-        if (paramValue == null) {
-            paramValue = '';
-        }
-        var pattern = new RegExp('\\b(' + paramName + '=).*?(&|#|$)');
-        if (url.search(pattern) >= 0) {
-            return url.replace(pattern, '$1' + paramValue + '$2');
-        }
-        url = url.replace(/[?#]$/, '');
-        return url + (url.indexOf('?') > 0 ? '&' : '?') + paramName + '=' + paramValue;
+  function replaceUrlParam(url, paramName, paramValue) {
+    if (paramValue == null) {
+      paramValue = "";
     }
-    function playvalid(playurl) {
-        var playurl = replaceUrlParam(playurl, 'origin', window.location.href);
-        $.ajax({
-            method: 'POST',
-            url: 'https://web09.jdb1688.net/frontendAPI.do',
-            'content-type': 'x-www-form-urlencoded',
-            async: false,
-            data: { action: 2 }
-        }).done(function (resp) {
-            if (resp.status == "0000") {
-                x = '&x=' + resp.data[0]['x'];
-            } else {
-                x = '&x=';
-            }
-            return_url = playurl + x;
-            window.open(return_url, '_blank');
-        });
-        return;
+    var pattern = new RegExp("\\b(" + paramName + "=).*?(&|#|$)");
+    if (url.search(pattern) >= 0) {
+      return url.replace(pattern, "$1" + paramValue + "$2");
     }
-    function requiredF(em, type, txt) {
-        var msg = ''; var em = em || '';
-        var type = type || 'input';
-        var item = $(type + '[name="' + em + '"]');
-        if (type == 'checkbox') {
-            var item = $('input[name="' + em + '"]');
-        }
-        var val = item.val();
-        if (type == 'checkbox') {
-            var val = $('input[name="' + em + '"]:checked').length;
-        }
-        var replace = true;
-        if (em) {
-            if (val == '' || type == 'select' && val == 0) msg = '必填';
-            else {
-                if (!msg && (em.indexOf('email') > -1 || em.indexOf('mail') > -1)) { if (checkRegex('email', val) !== true) msg = '格式錯誤'; }
-                else if (!msg && (em.indexOf('tel') > -1 || em.indexOf('phone') > -1)) { if (checkRegex('tel', val) !== true) msg = '格式錯誤:請輸入0～9／+／-'; }
-            }
-            if (msg) {
-                msg = txt + msg;
-                item.focus();
-                // if (replace) item.parent().prev().find('span').html(msg);
-            }
-        }
-        return msg;
+    url = url.replace(/[?#]$/, "");
+    return (
+      url + (url.indexOf("?") > 0 ? "&" : "?") + paramName + "=" + paramValue
+    );
+  }
+  function playvalid(playurl) {
+    var playurl = replaceUrlParam(playurl, "origin", window.location.href);
+    $.ajax({
+      method: "POST",
+      url: "https://web09.jdb1688.net/frontendAPI.do",
+      "content-type": "x-www-form-urlencoded",
+      async: false,
+      data: { action: 2 }
+    }).done(function(resp) {
+      if (resp.status == "0000") {
+        x = "&x=" + resp.data[0]["x"];
+      } else {
+        x = "&x=";
+      }
+      return_url = playurl + x;
+      window.open(return_url, "_blank");
+    });
+    return;
+  }
+  function requiredF(em, type, txt) {
+    var msg = "";
+    var em = em || "";
+    var type = type || "input";
+    var item = $(type + '[name="' + em + '"]');
+    if (type == "checkbox") {
+      var item = $('input[name="' + em + '"]');
     }
-</script> -->
+    var val = item.val();
+    if (type == "checkbox") {
+      var val = $('input[name="' + em + '"]:checked').length;
+    }
+    var replace = true;
+    if (em) {
+      if (val == "" || (type == "select" && val == 0)) msg = "必填";
+      else {
+        if (!msg && (em.indexOf("email") > -1 || em.indexOf("mail") > -1)) {
+          if (checkRegex("email", val) !== true) msg = "格式錯誤";
+        } else if (
+          !msg &&
+          (em.indexOf("tel") > -1 || em.indexOf("phone") > -1)
+        ) {
+          if (checkRegex("tel", val) !== true)
+            msg = "格式錯誤:請輸入0～9／+／-";
+        }
+      }
+      if (msg) {
+        msg = txt + msg;
+        item.focus();
+        // if (replace) item.parent().prev().find('span').html(msg);
+      }
+    }
+    return msg;
+  }
+</script>
