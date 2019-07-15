@@ -64,7 +64,11 @@
       }
       body {
         background-color: rgb(156, 40, 40);
-        height: 700px;
+        height: 1000px;
+      }
+      .fullHeight {
+        background-color: black;
+        height: 100%;
       }
     </style>
 
@@ -74,7 +78,7 @@
     <![endif] -->
   </head>
 
-  <body>
+  <body class="body">
     <header class="wrap-fs header">
       <a href="https://www.jdbgaming.com/cn" class="jdb" title="JDB夺宝电子"
         >JDB夺宝电子</a
@@ -208,10 +212,27 @@
 
   (function() {
     document.addEventListener("DOMContentLoaded", () => {
-      window.scrollTo(0, 100);
-      console.log("noooo");
+      //   window.scrollTo(0, 100);
+
+      console.log("ready");
     });
   })();
+
+  window.addEventListener("scroll", function(e) {
+    var scrollTop =
+      document.documentElement.scrollTop ||
+      window.pageYOffset ||
+      document.body.scrollTop;
+    if (scrollTop >= 100) {
+      console.log(scrollTop);
+      document.querySelector(".body").classList.add("fullHeight");
+    }
+    // document.querySelector(body)
+  });
+
+  // 以增加高度及在推移後於body動態增加class(height:100%)實現手機板推移全螢幕
+  // 以window.open()(tool)
+
   //   function replaceUrlParam(url, paramName, paramValue) {
   //     if (paramValue == null) {
   //       paramValue = "";
