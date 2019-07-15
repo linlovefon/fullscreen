@@ -15,10 +15,10 @@
     </script> -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta
+    <!-- <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no"
-    />
+    /> -->
     <title>
       JDB夺宝电子-在线电子游戏开发,老虎机、捕鱼机、棋牌、电子彩票、街机
     </title>
@@ -61,113 +61,8 @@
         animation: bgmove 2s linear infinite;
         background-size: 400% 100%;
       }
-
-      .load > div {
-        width: 10%;
-        min-width: 96px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 999;
-      }
-
-      .load > div:before {
-        content: "";
-        display: block;
-        width: 100%;
-        padding-bottom: 100%;
-      }
-
-      .load > div img {
-        display: block;
-        position: absolute;
-        width: 50%;
-        height: auto;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 5;
-        animation: scale 4s linear infinite;
-      }
-
-      .load > div .load-bg {
-        background: url("assets/img/layout/load-bg.svg") no-repeat;
-        background-size: cover;
-        position: absolute;
-        width: 80%;
-        padding-bottom: 80%;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        animation: spin 3s linear infinite;
-      }
-
-      .load > div .load-border {
-        position: absolute;
-        width: 80%;
-        padding-bottom: 80%;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        animation: back-spin 5s linear infinite;
-        border: 1px solid rgba(255, 255, 255, 0.5);
-      }
-
-      @keyframes spin {
-        0% {
-          transform: translate(-50%, -50%) scale(1.15) rotate(0deg);
-        }
-
-        50% {
-          transform: translate(-50%, -50%) scale(0.75) rotate(180deg);
-        }
-
-        100% {
-          transform: translate(-50%, -50%) scale(1.15) rotate(360deg);
-        }
-      }
-
-      @keyframes back-spin {
-        0% {
-          transform: translate(-50%, -50%) scale(1) rotate(0);
-        }
-
-        50% {
-          transform: translate(-50%, -50%) scale(0.8) rotate(-180deg);
-        }
-
-        100% {
-          transform: translate(-50%, -50%) scale(1) rotate(-360deg);
-        }
-      }
-
-      @keyframes scale {
-        0% {
-          transform: translate(-50%, -50%) scale(1);
-        }
-
-        50% {
-          transform: translate(-50%, -50%) scale(0.9);
-        }
-
-        100% {
-          transform: translate(-50%, -50%) scale(1);
-        }
-      }
-
-      @keyframes bgmove {
-        0% {
-          background-position: 0% 50%;
-        }
-
-        50% {
-          background-position: 100% 50%;
-        }
-
-        100% {
-          background-position: 0% 50%;
-        }
+      body {
+        height: 2000px;
       }
     </style>
 
@@ -265,7 +160,7 @@
     </footer>
 
     <!-- <script src="all.js"></script> -->
-    <script src="assets/js/slick.min.js"></script>
+    <!-- <script src="assets/js/slick.min.js"></script> -->
     <!-- <script>
         $(function () {
             $('.main-slick').on('init', function () {
