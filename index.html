@@ -208,19 +208,12 @@
   (function() {
     document.addEventListener("DOMContentLoaded", () => {
       console.log("ready");
-      var windowHeight = window.outerHeight + "px";
+      var windowHeight = window.outerHeight + 20 + "px";
       console.log(windowHeight);
       document.querySelector(".body").style.height = windowHeight;
-      // console.log();
-      // timer = window.setInterval("jump()", 1000);
     });
   })();
-  // function jump() {
-  //   window.resizeTo(200, 200);
-  //   x = Math.ceil(Math.random() * 1024);
-  //   y = Math.ceil(Math.random() * 760);
-  //   window.moveTo(x, y);
-  // }
+
   //卷軸滾動事件
   window.addEventListener("scroll", function(e) {
     var scrollTop =
