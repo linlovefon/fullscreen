@@ -163,43 +163,6 @@
         <img src="assets/img/layout/glc.png" />
       </div>
     </footer>
-
-    <!-- <script src="all.js"></script> -->
-    <!-- <script src="assets/js/slick.min.js"></script> -->
-    <!-- <script>
-      $(function() {
-        $(".main-slick")
-          .on("init", function() {
-            $(".category-stage").addClass("show");
-          })
-          .slick({
-            arrows: false,
-            fade: true,
-            dots: true,
-            infinite: true,
-            speed: 600,
-            autoplay: true,
-            autoplaySpeed: 3600,
-            focusOnSelect: false,
-            pauseOnHover: false,
-            pauseOnFocus: false
-          });
-        $(".category-stage").on("mouseover", "a", function(e) {
-          var nownow = $(this).index(".category-stage a");
-          $(".category-stage")
-            .removeClass("anm-0 anm-1 anm-2 anm-3 anm-4")
-            .addClass("anm-" + nownow);
-        });
-        $(".category-stage").on("mouseleave", function(e) {
-          $(this).removeClass("anm-0 anm-1 anm-2 anm-3 anm-4");
-        });
-        $(".alert-wrap").on("click", ".alert-close", function(e) {
-          $(".alert-wrap").fadeOut(300, function() {
-            $(this).remove();
-          });
-        });
-      });
-    </script> -->
   </body>
 </html>
 
@@ -207,92 +170,36 @@
   //document.ready
   (function() {
     document.addEventListener("DOMContentLoaded", () => {
-      console.log("ready");
-      var windowHeight = window.outerHeight + 20 + "px";
-      console.log(windowHeight);
-      document.querySelector(".body").style.height = windowHeight;
-    });
+      // 以增加高度及在推移後於body動態改變高度實現手機板推移全螢幕
+      // 以window.open() tool=>必須另開視窗不參考
+      //網頁載入後取得window高度，改變body高度
+      function bodyHeight() {
+        console.log("ready");
+        var windowHeight = window.outerHeight + 20 + "px";
+        console.log(windowHeight);
+        document.querySelector(".body").style.height = windowHeight;
+      } //bodyHeight end
+      bodyHeight();
+      //視窗大小改變事件
+      (function resizeListener() {
+        window.addEventListener("resize", function(e) {
+          bodyHeight();
+        }); //addEventListener end
+      })(); //resizeListener end
+      //卷軸滾動事件
+      (function scrollListener() {
+        window.addEventListener("scroll", function(e) {
+          var scrollTop =
+            document.documentElement.scrollTop ||
+            window.pageYOffset ||
+            document.body.scrollTop;
+          if (scrollTop >= 100) {
+            console.log(scrollTop);
+            document.querySelector(".body").classList.add("fullHeight");
+          }
+        }); //addEventListener end
+      })(); //scrollListener end
+      //*******************終點線*******************
+    }); //document ready
   })();
-
-  //卷軸滾動事件
-  window.addEventListener("scroll", function(e) {
-    var scrollTop =
-      document.documentElement.scrollTop ||
-      window.pageYOffset ||
-      document.body.scrollTop;
-    if (scrollTop >= 100) {
-      console.log(scrollTop);
-      document.querySelector(".body").classList.add("fullHeight");
-    }
-  });
-
-  // 以增加高度及在推移後於body動態改變高度實現手機板推移全螢幕
-  // 以window.open()(tool)=>必須另開視窗不參考
-
-  //   function replaceUrlParam(url, paramName, paramValue) {
-  //     if (paramValue == null) {
-  //       paramValue = "";
-  //     }
-  //     var pattern = new RegExp("\\b(" + paramName + "=).*?(&|#|$)");
-  //     if (url.search(pattern) >= 0) {
-  //       return url.replace(pattern, "$1" + paramValue + "$2");
-  //     }
-  //     url = url.replace(/[?#]$/, "");
-  //     return (
-  //       url + (url.indexOf("?") > 0 ? "&" : "?") + paramName + "=" + paramValue
-  //     );
-  //   }
-  //   function playvalid(playurl) {
-  //     var playurl = replaceUrlParam(playurl, "origin", window.location.href);
-  //     $.ajax({
-  //       method: "POST",
-  //       url: "https://web09.jdb1688.net/frontendAPI.do",
-  //       "content-type": "x-www-form-urlencoded",
-  //       async: false,
-  //       data: { action: 2 }
-  //     }).done(function(resp) {
-  //       if (resp.status == "0000") {
-  //         x = "&x=" + resp.data[0]["x"];
-  //       } else {
-  //         x = "&x=";
-  //       }
-  //       return_url = playurl + x;
-  //       window.open(return_url, "_blank");
-  //     });
-  //     return;
-  //   }
-  //   function requiredF(em, type, txt) {
-  //   var msg = "";
-  //   var em = em || "";
-  //   var type = type || "input";
-  //   var item = $(type + '[name="' + em + '"]');
-  //   if (type == "checkbox") {
-  //     var item = $('input[name="' + em + '"]');
-  //   }
-  //   var val = item.val();
-  //   if (type == "checkbox") {
-  //     var val = $('input[name="' + em + '"]:checked').length;
-  //   }
-  //   var replace = true;
-  //   if (em) {
-  //     if (val == "" || (type == "select" && val == 0)) msg = "必填";
-  //     else {
-  //       if (!msg && (em.indexOf("email") > -1 || em.indexOf("mail") > -1)) {
-  //         if (checkRegex("email", val) !== true) msg = "格式錯誤";
-  //       } else if (
-  //         !msg &&
-  //         (em.indexOf("tel") > -1 || em.indexOf("phone") > -1)
-  //       ) {
-  //         if (checkRegex("tel", val) !== true)
-  //           msg = "格式錯誤:請輸入0～9／+／-";
-  //       }
-  //     }
-  //     if (msg) {
-  //       msg = txt + msg;
-  //       item.focus();
-  //       // if (replace) item.parent().prev().find('span').html(msg);
-  //     }
-  //   }
-  //   return msg;
-  // }
 </script>
