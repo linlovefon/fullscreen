@@ -1,23 +1,305 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>FullScreen Test</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <button id="goFS">Go fullscreen</button>
+    <!-- last js window.scrollTo(0, 0); -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id='UA-131039901-1'"
+    ></script>
     <script>
-      var goFS = document.getElementById("goFS");
-      goFS.addEventListener(
-        "click",
-        function() {
-          document.body.requestFullscreen();
-        },
-        false
-      );
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-131039901-1");
     </script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <title>
+      JDB夺宝电子-在线电子游戏开发,老虎机、捕鱼机、棋牌、电子彩票、街机
+    </title>
+    <base href="https://www.jdbgaming.com/" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.png?20181212" />
+    <link
+      rel="apple-touch-icon"
+      href="assets/img/apple-touch-icon.png?20181212"
+    />
+    <link rel="canonical" href="https://www.jdbgaming.com/" />
+    <link
+      rel="alternate"
+      hreflang="zh-Hans"
+      href="https://www.jdbgaming.com/cn"
+    />
+    <meta
+      name="title"
+      content="JDB夺宝电子-在线电子游戏开发,老虎机、捕鱼机、棋牌、电子彩票、街机"
+    />
+    <meta
+      name="description"
+      content="JDB夺宝电子专精在线电子游戏开发，首位跨足五大类游戏产品(老虎机、捕鱼机、棋牌、电子彩票、街机)，拥有亚洲最大老虎机台制造商的独家授权，为客户实时提供皆通过GLI国际认证的游戏产品，与安全可靠的API介接服务。"
+    />
+    <meta
+      name="keywords"
+      content="JDB、夺宝电子、在线电子游戏开发、老虎机、捕鱼机、棋牌、电子彩票、街机、API介接、GLI国际认证 "
+    />
+    <meta name="author" content="JDB夺宝电子" />
+    <meta name="copyright" content="JDB夺宝电子" />
+    <style>
+      .load {
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        background: linear-gradient(270deg, #ff2e3a, #ffd200);
+        animation: bgmove 2s linear infinite;
+        background-size: 400% 100%;
+      }
+      body {
+        background-color: rgb(156, 40, 40);
+        /* height: 3000px; */
+      }
+      .fullHeight {
+        background-color: black;
+      }
+    </style>
+
+    <link rel="stylesheet" href="assets/css/style.min.css" />
+    <!-- [if lt IE 9]>
+      <script src="assets/js/html5shiv.min.js"></script>
+    <![endif] -->
+  </head>
+
+  <body class="body">
+    <header class="wrap-fs header">
+      <a href="https://www.jdbgaming.com/cn" class="jdb" title="JDB夺宝电子"
+        >JDB夺宝电子</a
+      >
+      <div class="lang mobile-hide">
+        <a href="https://www.jdbgaming.com/cn" class="current">简中</a>
+        <a href="https://www.jdbgaming.com/tw">繁中</a>
+        <a href="https://www.jdbgaming.com/en">EN</a>
+      </div>
+      <a href="cn/contact" class="mobile-hide btn-contact" title="联络我们"
+        >联络我们</a
+      >
+    </header>
+    <div class="nav-toggle">
+      <span class="bar">0</span>
+      <span class="bar">0</span>
+      <span class="bar">0</span>
+    </div>
+    <nav class="nav container">
+      <div class="main-nav">
+        <a href="cn/game" title="游戏">游戏</a>
+        <a href="cn/about" title="关于JDB">关于JDB</a>
+        <a href="cn/brand" title="品牌价值">品牌价值</a>
+        <a href="cn/news" title="最新消息">最新消息</a>
+        <!-- <a href="cn/guide" title="游戏攻略">游戏攻略</a> -->
+        <a href="cn/contact" class="mobile-show" title="联络我们">联络我们</a>
+
+        <div class="lang desktop-hide">
+          <a href="https://www.jdbgaming.com/cn" class="current">简中</a>
+          <a href="https://www.jdbgaming.com/tw">繁中</a>
+          <a href="https://www.jdbgaming.com/en">EN</a>
+        </div>
+      </div>
+    </nav>
+
+    <footer class="wrap footer text-center">
+      <div class="link">
+        <a href="cn/game" title="游戏">游戏</a>
+        <a href="cn/about" title="关于JDB">关于JDB</a>
+        <a href="cn/brand" title="品牌价值">品牌价值</a>
+        <a href="cn/news" title="最新消息">最新消息</a>
+        <!-- <a href="cn/guide" title="游戏攻略">游戏攻略</a> -->
+        <a href="cn/contact" title="联络我们">联络我们</a>
+      </div>
+      <div class="socail">
+        <a title="twitter">
+          <div class="hover-img">
+            <span class="hover">
+              <img src="/uploads/images/twitter-1.svg" />
+            </span>
+            <img src="/uploads/images/twitter.svg" />
+          </div>
+        </a>
+        <a title="weibo">
+          <div class="hover-img">
+            <span class="hover">
+              <img src="/uploads/images/Group704-1.svg" />
+            </span>
+            <img src="/uploads/images/Group704.svg" />
+          </div>
+        </a>
+        <a title="linkedin">
+          <div class="hover-img">
+            <span class="hover">
+              <img src="/uploads/images/linkedin-1.svg" />
+            </span>
+            <img src="/uploads/images/linkedin.svg" />
+          </div>
+        </a>
+        <a title="youku">
+          <div class="hover-img">
+            <span class="hover">
+              <img src="/uploads/images/youku-1.svg" />
+            </span>
+            <img src="/uploads/images/youku.svg" />
+          </div>
+        </a>
+      </div>
+      <div class="copyright">
+        Copyright © 2018 JDB Just Do The Best
+      </div>
+      <div class="certified">
+        <img src="assets/img/layout/glc.png" />
+      </div>
+    </footer>
+
+    <!-- <script src="all.js"></script> -->
+    <!-- <script src="assets/js/slick.min.js"></script> -->
+    <!-- <script>
+      $(function() {
+        $(".main-slick")
+          .on("init", function() {
+            $(".category-stage").addClass("show");
+          })
+          .slick({
+            arrows: false,
+            fade: true,
+            dots: true,
+            infinite: true,
+            speed: 600,
+            autoplay: true,
+            autoplaySpeed: 3600,
+            focusOnSelect: false,
+            pauseOnHover: false,
+            pauseOnFocus: false
+          });
+        $(".category-stage").on("mouseover", "a", function(e) {
+          var nownow = $(this).index(".category-stage a");
+          $(".category-stage")
+            .removeClass("anm-0 anm-1 anm-2 anm-3 anm-4")
+            .addClass("anm-" + nownow);
+        });
+        $(".category-stage").on("mouseleave", function(e) {
+          $(this).removeClass("anm-0 anm-1 anm-2 anm-3 anm-4");
+        });
+        $(".alert-wrap").on("click", ".alert-close", function(e) {
+          $(".alert-wrap").fadeOut(300, function() {
+            $(this).remove();
+          });
+        });
+      });
+    </script> -->
   </body>
 </html>
+
+<script>
+  //document.ready
+  (function() {
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("ready");
+      var windowHeight = window.outerHeight + "px";
+      console.log(windowHeight);
+      document.querySelector(".body").style.height = windowHeight;
+      // console.log();
+      // timer = window.setInterval("jump()", 1000);
+    });
+  })();
+  // function jump() {
+  //   window.resizeTo(200, 200);
+  //   x = Math.ceil(Math.random() * 1024);
+  //   y = Math.ceil(Math.random() * 760);
+  //   window.moveTo(x, y);
+  // }
+  //卷軸滾動事件
+  window.addEventListener("scroll", function(e) {
+    var scrollTop =
+      document.documentElement.scrollTop ||
+      window.pageYOffset ||
+      document.body.scrollTop;
+    if (scrollTop >= 100) {
+      console.log(scrollTop);
+      document.querySelector(".body").classList.add("fullHeight");
+    }
+  });
+
+  // 以增加高度及在推移後於body動態改變高度實現手機板推移全螢幕
+  // 以window.open()(tool)=>必須另開視窗不參考
+
+  //   function replaceUrlParam(url, paramName, paramValue) {
+  //     if (paramValue == null) {
+  //       paramValue = "";
+  //     }
+  //     var pattern = new RegExp("\\b(" + paramName + "=).*?(&|#|$)");
+  //     if (url.search(pattern) >= 0) {
+  //       return url.replace(pattern, "$1" + paramValue + "$2");
+  //     }
+  //     url = url.replace(/[?#]$/, "");
+  //     return (
+  //       url + (url.indexOf("?") > 0 ? "&" : "?") + paramName + "=" + paramValue
+  //     );
+  //   }
+  //   function playvalid(playurl) {
+  //     var playurl = replaceUrlParam(playurl, "origin", window.location.href);
+  //     $.ajax({
+  //       method: "POST",
+  //       url: "https://web09.jdb1688.net/frontendAPI.do",
+  //       "content-type": "x-www-form-urlencoded",
+  //       async: false,
+  //       data: { action: 2 }
+  //     }).done(function(resp) {
+  //       if (resp.status == "0000") {
+  //         x = "&x=" + resp.data[0]["x"];
+  //       } else {
+  //         x = "&x=";
+  //       }
+  //       return_url = playurl + x;
+  //       window.open(return_url, "_blank");
+  //     });
+  //     return;
+  //   }
+  //   function requiredF(em, type, txt) {
+  //   var msg = "";
+  //   var em = em || "";
+  //   var type = type || "input";
+  //   var item = $(type + '[name="' + em + '"]');
+  //   if (type == "checkbox") {
+  //     var item = $('input[name="' + em + '"]');
+  //   }
+  //   var val = item.val();
+  //   if (type == "checkbox") {
+  //     var val = $('input[name="' + em + '"]:checked').length;
+  //   }
+  //   var replace = true;
+  //   if (em) {
+  //     if (val == "" || (type == "select" && val == 0)) msg = "必填";
+  //     else {
+  //       if (!msg && (em.indexOf("email") > -1 || em.indexOf("mail") > -1)) {
+  //         if (checkRegex("email", val) !== true) msg = "格式錯誤";
+  //       } else if (
+  //         !msg &&
+  //         (em.indexOf("tel") > -1 || em.indexOf("phone") > -1)
+  //       ) {
+  //         if (checkRegex("tel", val) !== true)
+  //           msg = "格式錯誤:請輸入0～9／+／-";
+  //       }
+  //     }
+  //     if (msg) {
+  //       msg = txt + msg;
+  //       item.focus();
+  //       // if (replace) item.parent().prev().find('span').html(msg);
+  //     }
+  //   }
+  //   return msg;
+  // }
+</script>
