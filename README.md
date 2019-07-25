@@ -36,8 +36,8 @@ rm "$file02"".tmps2";
 ``` 
 # Shell 參考資料
 
-  sed -i '2 r a.txt' ccc.txt
-  #表示將a.txt文件的内容插入到ccc.txt文件的第二行。
+    sed -i '2 r a.txt' ccc.txt
+    #表示將a.txt文件的内容插入到ccc.txt文件的第二行。
 
 [sed空行添加]
 (https://www.cnblogs.com/yangsuxia/p/3382410.html)
