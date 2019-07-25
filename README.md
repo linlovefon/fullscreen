@@ -2,7 +2,7 @@
 以js擷取window高度並改變body高度來達成隱藏URL Bar
 
 # Shell in Jenkins
-
+` `` 
 file=index.html 
 file02=hide_bar.js 
 key01=documentReadyStart 
@@ -40,7 +40,7 @@ sed -i "$insertLine r $file02.tmps2" $file;
 
 rm "$file02"".tmps"; 
 rm "$file02"".tmps2"; 
-
+` `` 
 # Shell 參考資料
 
 sed空行添加 
