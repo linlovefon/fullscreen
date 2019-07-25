@@ -3,36 +3,36 @@
 
 # shell in Jenkins
 
-file=index.html
-file02=hide_bar.js
-key01=documentReadyStart
-key02=documentReadyEnd
-key03=debugger
+file=index.html 
+file02=hide_bar.js 
+key01=documentReadyStart 
+key02=documentReadyEnd 
+key03=debugger 
 
-#起始行數從關鍵字key01開始，至key02結束
-startLine=$(grep -n $key01 $file02 | awk -F':' '{print $1}')
-endLine=$(grep -n $key02 $file02 | awk -F':' '{print $1}')
+#起始行數從關鍵字key01開始，至key02結束 
+startLine=$(grep -n $key01 $file02 | awk -F':' '{print $1}') 
+endLine=$(grep -n $key02 $file02 | awk -F':' '{print $1}') 
 
-#插入行數
-serchLine=$(grep -n $key03 $file | awk -F':' '{print $1}')
-insertLine=`expr $serchLine - 1`
+#插入行數 
+serchLine=$(grep -n $key03 $file | awk -F':' '{print $1}') 
+insertLine=`expr $serchLine - 1` 
 
-#在$file02每行前增加空白並暫存至$file02.tmps
-space="        ";
-sed "s/^/$space /" $file02 > "$file02"".tmps";
+#在$file02每行前增加空白並暫存至$file02.tmps 
+space="        "; 
+sed "s/^/$space /" $file02 > "$file02"".tmps"; 
 
-#$key02的行後面添加空行並暫存至 $file02.tmps2
-sed "/$key02/G" "$file02"".tmps" > "$file02"".tmps2";
+#$key02的行後面添加空行並暫存至 $file02.tmps2 
+sed "/$key02/G" "$file02"".tmps" > "$file02"".tmps2"; 
 
-#將 $file02.tmps2 文件的内容插入到 $flie 文件的第 $insertLine 行。
-sed -i "$insertLine r $file02.tmps2" $file;
+#將 $file02.tmps2 文件的内容插入到 $flie 文件的第 $insertLine 行。 
+sed -i "$insertLine r $file02.tmps2" $file; 
 
-#拷貝file02的第 $startLine 至 $endLine 行內容到 $file02.tmps2
-#sed -e "$startLine,$endLine"h $file02 > "$file02"".tmps2";
+#拷貝file02的第 $startLine 至 $endLine 行內容到 $file02.tmps2 
+#sed -e "$startLine,$endLine"h $file02 > "$file02"".tmps2"; 
 
-#刪除暫存的檔案
-rm "$file02"".tmps";
-rm "$file02"".tmps2";
+#刪除暫存的檔案 
+rm "$file02"".tmps"; 
+rm "$file02"".tmps2"; 
 
 #Shell 參考資料
 sed空行添加 
