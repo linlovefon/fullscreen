@@ -12,6 +12,7 @@ key03=debugger
 #起始行數從關鍵字key01開始，至key02結束
 startLine=$(grep -n $key01 $file02 | awk -F':' '{print $1}')
 endLine=$(grep -n $key02 $file02 | awk -F':' '{print $1}')
+
 #插入行數
 serchLine=$(grep -n $key03 $file | awk -F':' '{print $1}')
 insertLine=`expr $serchLine - 1`
