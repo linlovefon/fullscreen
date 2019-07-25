@@ -41,7 +41,7 @@ rm "$file02"".tmps2";
 
 [sed空行添加](https://www.cnblogs.com/yangsuxia/p/3382410.html)
 
-[參考資料 字串與檔案處理的小技巧大全](https://dotblogs.com.tw/shuinvy/2014/11/20/1473809)
+[參考資料 字串與檔案處理的小技巧大全](https://dotblogs.com.tw/shuinvy/2014/11/20/147380)
 
 [鳥哥的學習私房菜 學習 Shell Scripts](http://linux.vbird.org/linux_basic/0340bashshell-scripts.php#script)
 
