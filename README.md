@@ -48,6 +48,7 @@ rm $file02; #刪除不需要的js檔
 # Shell 參考資料
 
 [mac環境使用sed修改文件出错的解决方法](https://blog.csdn.net/fdipzone/article/details/51253955)
+
     sed -i '2 r a.txt' ccc.txt
     #表示將a.txt文件的内容插入到ccc.txt文件的第二行。
 
